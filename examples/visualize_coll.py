@@ -1,6 +1,6 @@
 import viser
 import yourdfpy
-import pyroki as pk
+import pyronot as pk
 
 from pyronot.collision import RobotCollisionSpherized
 import numpy as np
@@ -19,7 +19,7 @@ q = np.array([
 # ----------------------------
 # Load robot
 # ----------------------------
-urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_allegro_right_spheres.urdf"
+urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_leap_right_spheres.urdf"
 urdf = yourdfpy.URDF.load(urdf_path)
 
 robot = pk.Robot.from_urdf(urdf)

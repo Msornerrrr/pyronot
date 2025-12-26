@@ -27,7 +27,7 @@ def _quat_wxyz_from_rpy(rpy_xyz: np.ndarray) -> np.ndarray:
 
 
 def main():
-    urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_allegro_right_spheres.urdf"
+    urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_leap_right_spheres.urdf"
     urdf = yourdfpy.URDF.load(urdf_path)
 
     target_link_name = "link7"
@@ -38,6 +38,10 @@ def main():
     plane_coll = HalfSpace.from_point_and_normal(
         np.array([0.0, 0.0, 0.0]), np.array([0.0, 0.0, 1.0])
     )
+    # front_wall_coll = HalfSpace.from_point_and_normal(
+    #     np.array([0.7, 0.0, 0.0]),   # point on the plane: x = 0.7
+    #     np.array([-1.0, 0.0, 0.0]),  # normal points toward -x
+    # )
     sphere_coll = Sphere.from_center_and_radius(
         np.array([0.0, 0.0, 0.0]), np.array([0.05])
     )

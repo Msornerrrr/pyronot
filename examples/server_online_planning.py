@@ -47,8 +47,8 @@ def _make_world_coll(
     for obj in req_world:
         typ = obj.get("type", "")
         if typ == "plane":
-            normal = np.array(obj.get("normal", [0, 0, 1]), dtype=float)
-            point = normal * float(obj.get("offset", 0.0))
+            normal = np.asarray(obj["normal"], dtype=float)
+            point  = np.asarray(obj["point"], dtype=float)
             world_coll.append(HalfSpace.from_point_and_normal(point, normal))
         elif typ == "sphere":
             center = np.array(obj["center"], dtype=float)
@@ -127,7 +127,7 @@ def main():
     # ------------------------------------------------------------
     # Pyroki setup
     # ------------------------------------------------------------
-    urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_allegro_right_spheres.urdf"
+    urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_leap_right_spheres.urdf"
     urdf = yourdfpy.URDF.load(urdf_path)
     robot = pk.Robot.from_urdf(urdf)
     robot_coll = RobotCollisionSpherized.from_urdf(urdf)

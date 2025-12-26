@@ -108,7 +108,7 @@ class PyrokiIKServer:
 # -----------------------------
 
 def main():
-    urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_allegro_right_spheres.urdf"
+    urdf_path = "/home/slurmlab/hao/pyronot/third_party/foam/assets/xarm7_leaphand/xarm7_leap_right_spheres.urdf"
     target_link_name = "link7"
 
     server = PyrokiIKServer(
